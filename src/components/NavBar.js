@@ -1,42 +1,29 @@
 import React from 'react'
-import logo from '../logo.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from  '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import { Stack } from '@mui/system'
+import Logo from '../assets/images/Logo.png'
+
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark">
-        <div className="container">
-          <a className="navbar-brand" href="#"><img className='logo' src={logo} alt="logo" /></a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      
-            <FontAwesomeIcon icon={faBars} style={{color:"white"}}/>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="#">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">about</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">services</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">haw work</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">portfolio</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">contact</a>
-              </li>
-              
-            </ul>
-            
-          </div>
-        </div>
-      </nav>
+    <Stack direction='row' justifyContent='space-around' sx={{
+      gap: {sm:'122px', xs:'40px'},
+      mt:{sm:'32px',xs:'20px'},
+      justifyContent:'none'
+    }} px='20px'>
+        <Link to='/'>
+          <img src={Logo} alt="logo" style={{
+            width:'48px',height:'48px',margin:'0 20px'
+          }} />
+        </Link>
+        <Stack direction='row' gap='40px' fontSize='24px' alignItems='flex-end'>
+          <Link to='/' style={
+            {textDecoration:'none',color:'#3a1212',borderBottom:'3px solid #FF2625'}
+          }>Home</Link >
+          <a href="#exercises" style={
+            {textDecoration:'none',color:'#3a1212'}
+          }>Exercises</a>
+        </Stack>
+    </Stack>
   )
 }
 
